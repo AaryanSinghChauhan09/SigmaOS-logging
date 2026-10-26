@@ -1,0 +1,17 @@
+[package]
+name = "sigmaos-logging"
+version = "0.1.0"
+edition = "2021"
+authors = ["SigmaOS Project"]
+description = "Logging and tracing system"
+license = "GPL-3.0-or-later"
+repository = "https://github.com/AaryanSinghChauhan09/SigmaOS-logging"
+readme = "README.md"
+keywords = ["logging", "tracing", "debug"]
+categories = ["development-tools"]
+
+[dependencies]
+sigmaos-kernel = { version = "0.1", path = "../SigmaOS-kernel" }
+
+[profile.release]
+opt-level = 3
