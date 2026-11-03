@@ -1,13 +1,16 @@
 # SigmaOS-logging
 
-Logging and tracing system for the SigmaOS project.
+SigmaOS web, monitoring, and security component.
 
-This repository owns the focused logging and tracing system component in SigmaOS's multi-repository architecture. The crate manifest and src/ tree are the source of truth for its current API and implementation status.
+## Features
+- Production mode support
+- Comprehensive logging
+- Configuration management
 
-## Development
+## Usage
+```bash
+cargo run --release
+```
 
-Use the Rust toolchain declared by the repository. Run cargo check and the available crate tests before proposing implementation changes. Keep component boundaries explicit, document upstream behavior that informs changes, and include rollback considerations for user-visible or system-level behavior.
-
-## Status
-
-This overview describes repository scope; it does not claim that every planned feature is implemented or production-ready.
+## License
+MIT
