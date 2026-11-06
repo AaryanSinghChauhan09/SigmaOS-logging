@@ -1,41 +1,10 @@
-use std::env;
-use log::{info, warn, error, debug};
-use anyhow::Result;
-use clap::Parser;
-use logging::logging;
+use ::logging::{logging, Config};
 
-#[derive(Parser)]
-struct Cli {
-    #[arg(short, long)]
-    production: bool,
-}
-
-fn main() -> Result<()> { -> Result<()> {
-    let cli = Cli::parse();
-    let config = logging::Config { 
-        production_mode: cli.production, 
-        ..Default::default() 
-    };
+fn main() -> anyhow::Result<()> {
+    let config = Config::default();
     let mut component = logging::new(config);
-    
-    component.initialize()?;
-    component.start()?;
-    
-    println!("SigmaOS-logging running");
+    component.initialize().map_err(|e| anyhow::anyhow!("{}", e))?;
+    component.start().map_err(|e| anyhow::anyhow!("{}", e))?;
+    println!("SigmaOS-logging operational");
     Ok(())
-}
-
-#[derive(Debug, Clone)]
-struct Config {
-    verbose: bool,
-    dry_run: bool,
-}
-
-impl Config {
-    fn from_env() -> Self {
-        Config {
-            verbose: env::var("VERBOSE").is_ok(),
-            dry_run: env::var("DRY_RUN").is_ok(),
-        }
-    }
 }
