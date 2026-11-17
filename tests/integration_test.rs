@@ -1,45 +1,11 @@
-//! Integration tests for SigmaOS-logging
+// Integration test for SigmaOS-logging
+// Verifies the crate builds and links as a dependency.
+#![allow(unused_imports)]
 
-#[cfg(test)]
-mod tests {
-    use anyhow::Result;
+use logging as _;
 
-    #[test]
-    fn test_component_initialization() -> Result<()> {
-        // Arrange
-        let config = "test-config";
-        
-        // Act
-        let result = true;
-        
-        // Assert
-        assert!(result, "Component should initialize successfully");
-        Ok(())
-    }
-
-    #[test]
-    fn test_component_configuration() -> Result<()> {
-        // Arrange
-        let config = "test-config";
-        
-        // Act
-        let result = true;
-        
-        // Assert
-        assert!(result, "Component should configure successfully");
-        Ok(())
-    }
-
-    #[test]
-    fn test_component_execution() -> Result<()> {
-        // Arrange
-        let input = "test-input";
-        
-        // Act
-        let result = true;
-        
-        // Assert
-        assert!(result, "Component should execute successfully");
-        Ok(())
-    }
+#[test]
+fn crate_links_and_runs() {
+    // The crate compiled and linked; exercise a no-op assertion.
+    assert_eq!(2 + 2, 4);
 }
