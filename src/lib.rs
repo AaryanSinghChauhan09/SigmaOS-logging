@@ -54,3 +54,9 @@ mod tests {
     #[test]
     fn test_reset() { let mut c = Component::new(); c.init().unwrap(); c.reset(); assert!(!c.is_ready()); }
 }
+
+/// Module extracted from the SigmaOS-system monolith.
+pub mod dmesg;
+
+/// Module extracted from the SigmaOS-system monolith.
+pub mod syslog;
